@@ -1,0 +1,10 @@
+CBC Linux Tutorial Presentation Slides
+======================================
+
+
+.. raw:: html
+
+
+
+	<p>Presentation Slides</p>
+    <iframe src="_static/presentation_slides.pdf" height="750px" width="800px"></iframe>

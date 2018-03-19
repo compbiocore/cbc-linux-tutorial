@@ -10,7 +10,7 @@ Welcome to CBC Linux Tutorial's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   linux_presentation <https://google.com/>
+   slides
 
    linux_explication
 
