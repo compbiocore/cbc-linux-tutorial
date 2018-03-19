@@ -32,6 +32,8 @@ The first command to remember is::
 
 It stands for ‘print working directory’, and does exactly that - displays the file path of the directory (folder) you’re currently inside
 
+.. image::_static/pwd_ss.png
+
 The next command is::
 
 	ls
