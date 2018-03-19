@@ -38,29 +38,10 @@ The next command is::
 
 	ls
 
-```
-[aleith@login002 ~]$ ls
-4-1                      Figure2c.eps               problem set 1
-5b                       finalgenerate              profile_backup
-anaconda                 helloworld.Rout            qiime2-2018.2-py35-linux-conda.yml
-batch.script             hist_thetahat67.fig        query_sim.csv
-batch_scripts            hist_thetahat6.fig         query_sim.mat
-bianca7.m                hist_thetahat7.fig         R
-cbc                      keys                       README
-CCVREADME                lib                        refGene.txt.gz
-class                    linux_tutorial             scratch
-class.err                matlab_crash_dump.15109-1  screen_check.sh
-class.out                matlab_crash_dump.20855-1  TERMS
-cluster.workspace.RData  matlab_crash_dump.20855-2  test_synapse
-conda                    matlab_crash_dump.24860-1  test.txt
-cronlog.log              matlab_crash_dump.7447-1   tophat.batch
-cron_screen_log.txt      modules                    tophat.err
-data                     mycloud                    tophat_out
-Desktop                  ncbi                       tophat.out
-Downloads                ncbi_error_report.xml      trichotomized.score.R
-Figure2a.eps             pathdef.m                  untitled.m
-Figure2b.eps             pkgs
-```
+	[aleith@login002 ~]$ ls
+	4-1                      Figure2c.eps               problem set 1
+	5b                       finalgenerate              profile_backup
+	anaconda                 helloworld.Rout            qiime2-2018.2-py35-linux-conda.yml
 
 
 It stands for ‘list’, and also does what it sounds like: lists the contents of the current working directory.
