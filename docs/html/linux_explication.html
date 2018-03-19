@@ -45,12 +45,8 @@
             
   <div class="section" id="linux-explication">
 <h1>Linux Explication<a class="headerlink" href="#linux-explication" title="Permalink to this headline">¶</a></h1>
-<p>This document constitutes a more elaborate discussion of the principles described in our Linux presentation, presented in a structure more resembling a narrative.  The code within can be copied into a terminal and directly executed.</p>
-<p><strong>THIS PAGE IS A DRAFT; REVISIONS AND SCREENSHOTS WILL BE ADDED SOON</strong></p>
-<p>To list all files in the current directory, type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span>
-</pre></div>
-</div>
+<p>This document constitutes a more elaborate discussion of the principles described in our Linux presentation, presented in a structure more resembling a narrative.  The code within can be copied into a terminal and directly executed (although as this document is a draft, it might not work seamlessly).</p>
+<p><strong>THIS PAGE IS A DRAFT; REVISIONS WILL BE ADDED SOON</strong></p>
 <div class="section" id="part-i-introduction-to-linux">
 <h2>Part I: Introduction to Linux<a class="headerlink" href="#part-i-introduction-to-linux" title="Permalink to this headline">¶</a></h2>
 <p>The original way to interact with a computer, dating back to the 1960s - so why use it in this day and age?</p>
@@ -146,9 +142,9 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 </pre></div>
 </div>
 <p>For example, user ‘aleith’ can give himself execute permission (‘u+x’ - add execute permission to user) on ‘randomfile.txt’ using the following command:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>    [aleith@login002 linux_tutorial]$ chmod u+x randomfile.txt
-    [aleith@login002 linux_tutorial]$ ls -lh
-    total 0
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 linux_tutorial]$ chmod u+x randomfile.txt
+[aleith@login002 linux_tutorial]$ ls -lh
+total 0
 -rwxr--r-- 1 aleith cbc    0 Mar 19 18:43 randomfile.txt
 </pre></div>
 </div>
