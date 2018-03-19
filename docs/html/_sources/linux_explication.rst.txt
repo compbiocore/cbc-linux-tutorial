@@ -531,6 +531,8 @@ All batch scripts require a header that follows a specified format - otherwise, 
 	#SBATCH -o exac.out				The file for ‘standard out’
 	#SBATCH -e exac.err				The file for ‘standard error’
 
+Please note that the ``#`` symbols are part of the format and are not an example of commands being 'commented out'.  They must be included for the script to be processed.
+
 Other parameters can be found at the following address:
 
 https://web1.ccv.brown.edu/doc/jobs
