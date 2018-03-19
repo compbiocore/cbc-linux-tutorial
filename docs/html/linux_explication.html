@@ -46,9 +46,69 @@
   <div class="section" id="linux-explication">
 <h1>Linux Explication<a class="headerlink" href="#linux-explication" title="Permalink to this headline">¶</a></h1>
 <p>This document constitutes a more elaborate discussion of the principles described in our Linux presentation, presented in a structure more resembling a narrative.  The code within can be copied into a terminal and directly executed.</p>
+<p><strong>THIS PAGE IS A DRAFT</strong></p>
 <p>To list all files in the current directory, type:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span>
 </pre></div>
+</div>
+<div class="section" id="part-i-introduction-to-linux">
+<h2>Part I: Introduction to Linux<a class="headerlink" href="#part-i-introduction-to-linux" title="Permalink to this headline">¶</a></h2>
+<p>The original way to interact with a computer, dating back to the 1960s - so why use it in this day and age?</p>
+<p>The command line offers greater flexibility compared to a GUI - you can choose what to do rather than being restricted by other developers’ choices</p>
+<p>Command line utilities are easy to automate, allowing for more efficient data analysis and saving you from annoying busy work</p>
+<p>At first, the bare-bones ‘retro’ appearance of the CLI is intimidating - eventually, though, it is faster to use than a GUI for many tasks</p>
+<p>To understand how to use the CLI, it is important to learn a few simple commands that will let you navigate the system - memorizing these will make life much easier</p>
+<p>These commands will be illustrated with a screenshot from Brown’s compute cluster</p>
+<p>The first command to remember is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+</pre></div>
+</div>
+<p>It stands for ‘print working directory’, and does exactly that - displays the file path of the directory (folder) you’re currently inside</p>
+<p>The next command is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span>
+</pre></div>
+</div>
+<p>It stands for ‘list’, and also does what it sounds like: lists the contents of the current working directory.</p>
+<p>When using ‘ls’, you will note that different colors are used to depict the contents of your working directory.  These vary by the version of Linux you use; the following information corresponds to Brown’s compute cluster</p>
+<p>Dark blue: a directory (folder)</p>
+<p>Light blue: a symbolic link (analogous to a shortcut on Windows)</p>
+<p>Black: a file</p>
+<p>Other colors have niche uses that you are unlikely to encounter at this stage</p>
+<p>Many Linux commands have options that change their behavior, and ‘ls’ is no exception</p>
+<p>These options are set using a minus (-), directly followed by the letter associated with that option</p>
+<p>For example, by default, ls only shows non-hidden files.  To show all files, you would type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>Below, you can see the radically different output of ls -a relative to ls</p>
+<p>Note that on Linux, hidden files and directories always begin with a ‘.’</p>
+<p>The third fundamental navigation command is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span>
+</pre></div>
+</div>
+<p>This command stands for ‘change directory’ and is what allows you to actually move around.</p>
+<p>Some directories can have long, complicated names, making it difficult to type them out</p>
+<p>The CLI allows so-called ‘tab completion’ - when typing part of a directory’s path (or a file’s path), pressing ‘tab’ will cause the rest of the name to be automatically filled in</p>
+<p>If more than one item matches what you’ve typed, it will autocomplete up to the point of ambiguity and then you will need to type more and type ‘tab’ again</p>
+<p><strong>Basic File Structure Overview</strong></p>
+<p>There are two fundamental ways to refer to a file or directory on Linux: a relative file path or an absolute file path</p>
+<p>A relative file path is the location of a file with respect to your current working directory (and will therefore change based on where your working directory is)</p>
+<p>An absolute file path, sometimes described as a ‘full file path’, is that file’s true location on the computer and is invariant</p>
+<p>There are several pieces of shorthand notation that are often used in defining a relative file path
+. stands for the current working directory (i.e. the output of pwd)</p>
+<p>.. stands for the parent directory, i.e. the directory that contains the current working directory</p>
+<p>~ (‘tilde’) stands for the current user’s (i.e. your) home directory, the location of which is dependent on the system configuration</p>
+<p>The absolute file path of a file is its location with respect to the root directory</p>
+<p>The root directory is the highest level directory on the computer, and is denoted by the path ‘/’</p>
+<p>File paths beginning with ‘/’ are absolute paths</p>
+<p>The following two paths are very different:</p>
+<p>anaconda/bin/ is the ‘bin’ directory inside the ‘anaconda’ directory inside the current directory</p>
+<p>/anaconda/bin/ is the ‘bin’ directory inside the ‘anaconda’ directory inside the root directory</p>
+<p>To avoid ambiguity, it is generally a good idea to stick to absolute file paths whenever possible</p>
+<p><strong>File Manipulation</strong></p>
+<p>We will now cover the basic tenets of file manipulation using the CLI</p>
+<p>First, however, we must briefly address a technical topic that is likely unfamiliar: file permissions</p>
+<p>If you’ve ever had to type your administrator password on Windows or OSX to perform an operation, you’ve encountered file permissions before</p>
 </div>
 </div>
 
@@ -72,7 +132,10 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference external" href="https://compbiocore.github.io/cbc-workshops/">CBC Workshop index</a></li>
 <li class="toctree-l1"><a class="reference internal" href="slides.html">CBC Linux Tutorial Presentation Slides</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Explication</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Explication</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#part-i-introduction-to-linux">Part I: Introduction to Linux</a></li>
+</ul>
+</li>
 </ul>
 
 <div class="relations">

@@ -3,8 +3,108 @@ Linux Explication
 
 This document constitutes a more elaborate discussion of the principles described in our Linux presentation, presented in a structure more resembling a narrative.  The code within can be copied into a terminal and directly executed.
 
+**THIS PAGE IS A DRAFT**
+
 
 To list all files in the current directory, type::
 
 	ls
 
+
+Part I: Introduction to Linux
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The original way to interact with a computer, dating back to the 1960s - so why use it in this day and age?
+
+The command line offers greater flexibility compared to a GUI - you can choose what to do rather than being restricted by other developers’ choices
+
+Command line utilities are easy to automate, allowing for more efficient data analysis and saving you from annoying busy work
+
+At first, the bare-bones ‘retro’ appearance of the CLI is intimidating - eventually, though, it is faster to use than a GUI for many tasks
+
+To understand how to use the CLI, it is important to learn a few simple commands that will let you navigate the system - memorizing these will make life much easier
+
+These commands will be illustrated with a screenshot from Brown’s compute cluster
+
+The first command to remember is::
+
+	pwd
+
+It stands for ‘print working directory’, and does exactly that - displays the file path of the directory (folder) you’re currently inside
+
+The next command is::
+
+	ls
+
+It stands for ‘list’, and also does what it sounds like: lists the contents of the current working directory.
+
+When using ‘ls’, you will note that different colors are used to depict the contents of your working directory.  These vary by the version of Linux you use; the following information corresponds to Brown’s compute cluster
+
+Dark blue: a directory (folder)
+
+Light blue: a symbolic link (analogous to a shortcut on Windows)
+
+Black: a file
+
+Other colors have niche uses that you are unlikely to encounter at this stage
+
+Many Linux commands have options that change their behavior, and ‘ls’ is no exception
+
+These options are set using a minus (-), directly followed by the letter associated with that option
+
+For example, by default, ls only shows non-hidden files.  To show all files, you would type::
+
+	ls -a
+
+Below, you can see the radically different output of ls -a relative to ls
+
+Note that on Linux, hidden files and directories always begin with a ‘.’
+
+The third fundamental navigation command is::
+
+	cd
+
+This command stands for ‘change directory’ and is what allows you to actually move around.
+
+Some directories can have long, complicated names, making it difficult to type them out
+
+The CLI allows so-called ‘tab completion’ - when typing part of a directory’s path (or a file’s path), pressing ‘tab’ will cause the rest of the name to be automatically filled in
+
+If more than one item matches what you’ve typed, it will autocomplete up to the point of ambiguity and then you will need to type more and type ‘tab’ again
+
+**Basic File Structure Overview**
+
+There are two fundamental ways to refer to a file or directory on Linux: a relative file path or an absolute file path
+
+A relative file path is the location of a file with respect to your current working directory (and will therefore change based on where your working directory is)
+
+An absolute file path, sometimes described as a ‘full file path’, is that file’s true location on the computer and is invariant
+
+There are several pieces of shorthand notation that are often used in defining a relative file path
+\. stands for the current working directory (i.e. the output of pwd)
+
+\.\. stands for the parent directory, i.e. the directory that contains the current working directory
+
+\~ (‘tilde’) stands for the current user’s (i.e. your) home directory, the location of which is dependent on the system configuration
+
+The absolute file path of a file is its location with respect to the root directory
+
+The root directory is the highest level directory on the computer, and is denoted by the path ‘/’
+
+File paths beginning with ‘/’ are absolute paths
+
+The following two paths are very different:
+
+anaconda/bin/ is the ‘bin’ directory inside the ‘anaconda’ directory inside the current directory
+
+/anaconda/bin/ is the ‘bin’ directory inside the ‘anaconda’ directory inside the root directory
+
+To avoid ambiguity, it is generally a good idea to stick to absolute file paths whenever possible
+
+**File Manipulation**
+
+We will now cover the basic tenets of file manipulation using the CLI
+
+First, however, we must briefly address a technical topic that is likely unfamiliar: file permissions
+
+If you’ve ever had to type your administrator password on Windows or OSX to perform an operation, you’ve encountered file permissions before
