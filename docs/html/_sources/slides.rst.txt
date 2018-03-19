@@ -13,4 +13,4 @@ CBC Linux Tutorial Presentation Slides
     <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRj-IPX69CB-wba-BL9RUIxUUKyNjSDfqDC8wla5CiSoKhBpBgeQ94LLpueij9NUGuVJTg_3HyDp0O_/embed?start=false&loop=false&delayms=60000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
     <p>Test Embed 2</p>
-    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRj-IPX69CB-wba-BL9RUIxUUKyNjSDfqDC8wla5CiSoKhBpBgeQ94LLpueij9NUGuVJTg_3HyDp0O_/embed?start=false&loop=false&delayms=600000000000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+    <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRj-IPX69CB-wba-BL9RUIxUUKyNjSDfqDC8wla5CiSoKhBpBgeQ94LLpueij9NUGuVJTg_3HyDp0O_/embed?start=false&loop=false&delayms=6000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
