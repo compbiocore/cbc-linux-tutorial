@@ -30,9 +30,10 @@ The first command to remember is::
 
 	pwd
 
-It stands for ‘print working directory’, and does exactly that - displays the file path of the directory (folder) you’re currently inside
+	[aleith@login002 ~]$ pwd
+	/users/aleith
 
-.. image:: _static/pwd_ss.png
+It stands for ‘print working directory’, and does exactly that - displays the file path of the directory (folder) you’re currently inside
 
 The next command is::
 
@@ -64,6 +65,11 @@ For example, by default, ls only shows non-hidden files.  To show all files, you
 
 	ls -a
 
+	[aleith@login002 ~]$ ls -a
+	.                        .fonts.conf                profile_backup
+	..                       .gconf                     .pulse
+	4-1                      .gconfd                    .pulse-cookie
+
 Below, you can see the radically different output of ls -a relative to ls
 
 Note that on Linux, hidden files and directories always begin with a ‘.’
@@ -71,6 +77,10 @@ Note that on Linux, hidden files and directories always begin with a ‘.’
 The third fundamental navigation command is::
 
 	cd
+
+	[aleith@login002 ~]$ cd anaconda
+	[aleith@login002 anaconda]$ pwd
+	/users/aleith/anaconda
 
 This command stands for ‘change directory’ and is what allows you to actually move around.
 
@@ -89,6 +99,7 @@ A relative file path is the location of a file with respect to your current work
 An absolute file path, sometimes described as a ‘full file path’, is that file’s true location on the computer and is invariant
 
 There are several pieces of shorthand notation that are often used in defining a relative file path
+
 \. stands for the current working directory (i.e. the output of pwd)
 
 \.\. stands for the parent directory, i.e. the directory that contains the current working directory
@@ -127,6 +138,10 @@ To view a file’s permissions on Linux, you can type::
 
 	ls -lh
 
+	[aleith@login002 linux_tutorial]$ ls -lh
+	total 0
+    -rw-r--r-- 1 aleith cbc    0 Mar 19 18:43 randomfile.txt
+
 -rw-r--r-- means ‘user has read and write permission’, ‘user’s group has read permission’, and ‘everyone else has read permission’
 aleith	cbc means this file is owned by user ‘aleith’ from group ‘cbc’
 
@@ -138,7 +153,12 @@ A file’s permissions can be changed by the owner using the command::
 
 	chmod [permission to change] [target]
 
-For example, user ‘aleith’ can give himself execute permission (‘u+x’ - add execute permission to user) on ‘randomfile.txt’ using the following command
+For example, user ‘aleith’ can give himself execute permission (‘u+x’ - add execute permission to user) on ‘randomfile.txt’ using the following command::
+
+	[aleith@login002 linux_tutorial]$ chmod u+x randomfile.txt 
+	[aleith@login002 linux_tutorial]$ ls -lh
+	total 0
+    -rwxr--r-- 1 aleith cbc    0 Mar 19 18:43 randomfile.txt
 
 Note that a file for which you have execute permissions will be colored green
 
@@ -163,7 +183,11 @@ To create a new directory from the command line, simply type::
 
 	mkdir [directory name]
 
-This command, naturally, means ‘make directory’
+This command, naturally, means ‘make directory’::
+
+	[aleith@login002 linux_tutorial]$ mkdir directory1
+	[aleith@login002 linux_tutorial]$ ls
+	directory1  randomfile.txt
 
 Directories created in this manner cannot contain spaces, as the CLI will interpret any space as the end of the directory’s name
 
@@ -171,11 +195,22 @@ To move a file, one can use the following command::
 
 	mv [target] [destination]
 
-The ‘move’ command moves ‘target’ to the directory specified as ‘destination’
+The ‘move’ command moves ‘target’ to the directory specified as ‘destination’::
+
+	[aleith@login002 linux_tutorial]$ mv randomfile.txt ~/linux_tutorial/directory1/
+	[aleith@login002 linux_tutorial]$ ls
+	directory1
+	[aleith@login002 linux_tutorial]$ ls ~/linux_tutorial/directory1/
+	randomfile.txt
 
 Files can be copied by typing::
 
 	cp [original filename] [new filename]
+
+	[aleith@login002 linux_tutorial]$ cd directory1/
+	[aleith@login002 directory1]$ cp randomfile.txt copiedfile.txt
+	[aleith@login002 directory1]$ ls
+	copiedfile.txt  randomfile.txt
 
 The ‘copy’ command simply duplicates a file in its entirety
 
@@ -185,6 +220,12 @@ For example,::
 
 	ls *.txt
 
+	[aleith@login002 directory1]$ touch script.sh  #create an empty script to serve as a contrast
+	[aleith@login002 directory1]$ ls
+	copiedfile.txt  script.sh   randomfile.txt
+	[aleith@login002 directory1]$ ls *.txt
+	copiedfile.txt  randomfile.txt
+
 will run ‘ls’ on every file that ends in ‘.txt’.  To illustrate this effect, a new file called ‘script.sh’ has been added to our directory
 
 Here, we show two more examples.
@@ -193,10 +234,15 @@ First, we list any files beginning with ‘random’::
 
 	ls random*
 
+	[aleith@login002 directory1]$ ls random*
+	randomfile.txt
 
 Then, we list any files that start with anything, have a ‘d’ in the middle, and then end with anything::
 
 	ls *d*
+	[aleith@login002 directory1]$ ls *d*
+	copiedfile.txt  randomfile.txt
+
 
 To view the contents of a file, the ``less`` command can be used - it will display the first few lines of the file and allow you to scroll through it.  Pressing ‘q’ will close this browser
 
@@ -214,7 +260,21 @@ The ``> [file]`` operator redirects output to ‘file’, overwriting it if it a
 
 The related ``>> [file]`` operator appends output to ‘file’
 
-[full page screenshot]
+Here is an example that compares these operators::
+
+	[aleith@login002 directory1]$ echo "hello world"
+	hello world
+	[aleith@login002 directory1]$ echo "hello world, redirected" > hello.txt
+	[aleith@login002 directory1]$ ls
+	copiedfile.txt script.sh
+	hello.txt      randomfile.txt
+	[aleith@login002 directory1]$ cat hello.txt
+	hello world, redirected
+	[aleith@login002 directory1]$ echo "hello world, appended" >> hello.txt
+	[aleith@login002 directory1]$ cat hello.txt
+	hello world, redirected
+	hello world, appended
+
 
 **Downloading Files**
 
@@ -226,17 +286,48 @@ It downloads a file as-is, with the same filename, and places it in your current
 
 	curl [url] > [filepath]
 
-Without the ‘> [filepath]’ portion of the command, the contents of the file will be printed to the screen and not saved
+Without the ‘> [filepath]’ portion of the command, the contents of the file will be printed to the screen and not saved::
 
-[curl page]
+	[aleith@login002 directory1]$ curl www.google.com
+	<!doctype html><html itemscope="" itemtype="http://schema.org/WebPage" lang="en"><head>
+	<meta content="Search the world's information, including webpages,
 
-[grep page]
+Juducious use of ``>`` allows you to download the page instead, and even invokes a progress meter::
+
+	[aleith@login002 directory1]$ curl www.google.com > google.html
+  	% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+	100 11371    0 11371    0     0   187k      0 --:--:-- --:--:-- --:--:--  236k
+	[aleith@login002 directory1]$ ls
+	copiedfile.txt  script.sh    google.html
+	hello.txt      randomfile.txt
+
+For the next few examples, we will use a dictionary of English words::
+
+	[aleith@login002 directory1]$ mkdir grep_examples
+	[aleith@login002 directory1]$ cd grep_examples/
+	[aleith@login002 grep_examples]$ curl http://www-personal.umich.edu/~jlawler/wordlist > dictionary.txt
+ 	 % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+	100  718k  100  718k    0     0  1117k      0 --:--:-- --:--:-- --:--:-- 1240k
+
+The wc -l command uses the ‘word count’ function to count the number of lines this file comprises (69905)::
+
+	[aleith@login002 grep_examples]$ wc -l dictionary.txt 
+	69905 dictionary.txt
 
 The grep command allows us to search through a file for any entries that match a specified pattern::
 
 	grep [pattern] [filename]
 
-For example, we can search our (abridged) dictionary for all words containing the letter sequence ‘aar’
+For example, we can search our (abridged) dictionary for all words containing the letter sequence ‘aar’::
+
+	[aleith@login002 grep_examples]$ grep "aar" dictionary.txt 
+	aardvark
+	aardwolf
+	bazaar
+	tumultuaary
+	zaar
 
 The previous example included a fairly specific pattern, ‘aar’, intentionally selected so all matches could fit on screen - but what if that weren’t the case?  How can we count the number of matches if there are hundreds of them?
 
@@ -246,13 +337,23 @@ The CLI has an operator that allows us to send the output of one function to ano
 
 This operator is pronounced ‘pipe’
 
-If we want to know how many words in our dictionary contain the letter ‘a’ anywhere, we can combine ``grep`` and ``wc -l`` using a pipe
+If we want to know how many words in our dictionary contain the letter ‘a’ anywhere, we can combine ``grep`` and ``wc -l`` using a pipe::
 
-If we tried to do so using the wrong operator, we would end up with weird behavior and a file named ‘wc’, since > treats its antecedent as a file name specification
+	[aleith@login002 grep_examples]$ grep "a" dictionary.txt | wc -l
+	40387
+
+If we tried to do so using the wrong operator, we would end up with weird behavior and a file named ‘wc’, since > treats its antecedent as a file name specification::
+
+	[aleith@login002 grep_examples]$ grep "a" dictionary.txt > wc -l
+	[aleith@login002 grep_examples]$ ls
+	dictionary.txt  wc
 
 **Deleting Files**
 
-This ‘wc’ file is not useful, merely containing “dictionary.txt” as text
+This ‘wc’ file is not useful, merely containing “dictionary.txt” as text::
+
+	[aleith@login002 grep_examples]$ cat wc
+	dictionary.txt
 
 To delete a file, we use the following command::
 
@@ -282,17 +383,24 @@ The most common error encountered on a Linux system - hands down - is ``command 
 
 This error means that the computer does not know how to process what you’ve typed - it could be due to a simple typo, or there could be a bigger issue
 
-A slapdash attempt to look at the cp manual will look like this
+A slapdash attempt to look at the cp manual will look like this::
 
-[screenshot]
+	[aleith@login002 grep_examples]$ cpr --help
+	bash: cpr: command not found
 
-Oftentimes, however, you have indeed typed a valid command but Linux still says ‘command not found’ - how is that possible? 
+Oftentimes, however, you have indeed typed a valid command but Linux still says ‘command not found’ - how is that possible?::
+
+	[aleith@login002 grep_examples]$ samtools --help
+	bash: samtools: command not found
 
 It all comes down to how a command line-based system runs software.  Unlike a GUI-based system where every program icon is linked directly to the software, Linux works based on a list of locations to look for program files (‘binaries’) - this list is called the ‘PATH’
 
 To view your PATH, you can type::
 
 	echo $PATH
+
+	[aleith@login002 grep_examples]$ echo $PATH
+	/gpfs/runtime/opt/matlab/R2014a/bin:/gpfs/runtime/opt/perl/5.18.2/bin:/gpfs/runtime/opt/python/2.7.3/bin:/gpfs/runtime/opt/java/7u5/bin:/gpfs/runtime/opt/intel/2013.1.106/bin:/gpfs/runtime/opt/centos-updates/6.3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/ibutils/bin:/gpfs/runtime/bin:/users/aleith/bin
 
 Here, the ‘$’ basically means ‘bash variable’ - PATH is a globally-defined variable on every Linux system
 
@@ -308,9 +416,16 @@ This error usually comes about when you have downloaded a file and it’s been c
 
 To resolve this issue, simply add the requisite permission for the operation you are attempting
 
-We will simulate an example of this error on the next slide
+We will simulate an example of this error below::
 
-[ss]
+	[aleith@login002 grep_examples]$ cd ~/linux_tutorial/directory1/
+	[aleith@login002 directory1]$ chmod 000 randomfile.txt 
+	[aleith@login002 directory1]$ ls -lh randomfile.txt 
+	---------- 1 aleith cbc 0 Mar 19 18:43 randomfile.txt
+	[aleith@login002 directory1]$ cat randomfile.txt 
+	cat: randomfile.txt: Permission denied
+	[aleith@login002 directory1]$ chmod u+r randomfile.txt 
+	[aleith@login002 directory1]$ cat randomfile.txt
 
 Linux has an uncountable number of developers publishing software, and most of these packages have their own unique errors.
 
@@ -351,7 +466,10 @@ If you plan to use Oscar to print any graphics to the screen, you must use a sli
 
 The ‘-Y’ option will enable graphics forwarding.  It is necessary to use any application with a GUI e.g. Firefox, RStudio, or the typical Matlab environment
 
-Without specifying ‘-Y’, attempts to display graphics will cause errors
+Without specifying ‘-Y’, attempts to display graphics will cause errors::
+
+	[aleith@login002 directory1]$ firefox
+	Error: no display specified
 
 If left idle, ssh connections will timeout
 

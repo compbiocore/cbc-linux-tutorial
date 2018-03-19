@@ -60,11 +60,13 @@
 <p>To understand how to use the CLI, it is important to learn a few simple commands that will let you navigate the system - memorizing these will make life much easier</p>
 <p>These commands will be illustrated with a screenshot from Brown’s compute cluster</p>
 <p>The first command to remember is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pwd</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>pwd
+
+[aleith@login002 ~]$ pwd
+/users/aleith
 </pre></div>
 </div>
 <p>It stands for ‘print working directory’, and does exactly that - displays the file path of the directory (folder) you’re currently inside</p>
-<img alt="_images/pwd_ss.png" src="_images/pwd_ss.png" />
 <p>The next command is:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>ls
 
@@ -83,13 +85,22 @@ anaconda                 helloworld.Rout            qiime2-2018.2-py35-linux-con
 <p>Many Linux commands have options that change their behavior, and ‘ls’ is no exception</p>
 <p>These options are set using a minus (-), directly followed by the letter associated with that option</p>
 <p>For example, by default, ls only shows non-hidden files.  To show all files, you would type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">a</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>ls -a
+
+[aleith@login002 ~]$ ls -a
+.                        .fonts.conf                profile_backup
+..                       .gconf                     .pulse
+4-1                      .gconfd                    .pulse-cookie
 </pre></div>
 </div>
 <p>Below, you can see the radically different output of ls -a relative to ls</p>
 <p>Note that on Linux, hidden files and directories always begin with a ‘.’</p>
 <p>The third fundamental navigation command is:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>cd
+
+[aleith@login002 ~]$ cd anaconda
+[aleith@login002 anaconda]$ pwd
+/users/aleith/anaconda
 </pre></div>
 </div>
 <p>This command stands for ‘change directory’ and is what allows you to actually move around.</p>
@@ -100,8 +111,8 @@ anaconda                 helloworld.Rout            qiime2-2018.2-py35-linux-con
 <p>There are two fundamental ways to refer to a file or directory on Linux: a relative file path or an absolute file path</p>
 <p>A relative file path is the location of a file with respect to your current working directory (and will therefore change based on where your working directory is)</p>
 <p>An absolute file path, sometimes described as a ‘full file path’, is that file’s true location on the computer and is invariant</p>
-<p>There are several pieces of shorthand notation that are often used in defining a relative file path
-. stands for the current working directory (i.e. the output of pwd)</p>
+<p>There are several pieces of shorthand notation that are often used in defining a relative file path</p>
+<p>. stands for the current working directory (i.e. the output of pwd)</p>
 <p>.. stands for the parent directory, i.e. the directory that contains the current working directory</p>
 <p>~ (‘tilde’) stands for the current user’s (i.e. your) home directory, the location of which is dependent on the system configuration</p>
 <p>The absolute file path of a file is its location with respect to the root directory</p>
@@ -119,7 +130,11 @@ anaconda                 helloworld.Rout            qiime2-2018.2-py35-linux-con
 <p>There are three fundamental permissions: read (r), write (w), and execute (x).</p>
 <p>There are also three sets of permissions: those belonging to the user (u), those belonging to the user’s group (g), and those belonging to everyone else (o) on the system</p>
 <p>To view a file’s permissions on Linux, you can type:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">lh</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    ls -lh
+
+    [aleith@login002 linux_tutorial]$ ls -lh
+    total 0
+-rw-r--r-- 1 aleith cbc    0 Mar 19 18:43 randomfile.txt
 </pre></div>
 </div>
 <p>-rw-r–r– means ‘user has read and write permission’, ‘user’s group has read permission’, and ‘everyone else has read permission’
@@ -130,7 +145,13 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">chmod</span> <span class="p">[</span><span class="n">permission</span> <span class="n">to</span> <span class="n">change</span><span class="p">]</span> <span class="p">[</span><span class="n">target</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>For example, user ‘aleith’ can give himself execute permission (‘u+x’ - add execute permission to user) on ‘randomfile.txt’ using the following command</p>
+<p>For example, user ‘aleith’ can give himself execute permission (‘u+x’ - add execute permission to user) on ‘randomfile.txt’ using the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    [aleith@login002 linux_tutorial]$ chmod u+x randomfile.txt
+    [aleith@login002 linux_tutorial]$ ls -lh
+    total 0
+-rwxr--r-- 1 aleith cbc    0 Mar 19 18:43 randomfile.txt
+</pre></div>
+</div>
 <p>Note that a file for which you have execute permissions will be colored green</p>
 <p>Execute permission is largely irrelevant for a text file, but it is vitally important for any script that is to be run; newly-created files often do not start with execute permission even when you create them yourself</p>
 <p>The command:</p>
@@ -148,31 +169,59 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mkdir</span> <span class="p">[</span><span class="n">directory</span> <span class="n">name</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>This command, naturally, means ‘make directory’</p>
+<p>This command, naturally, means ‘make directory’:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 linux_tutorial]$ mkdir directory1
+[aleith@login002 linux_tutorial]$ ls
+directory1  randomfile.txt
+</pre></div>
+</div>
 <p>Directories created in this manner cannot contain spaces, as the CLI will interpret any space as the end of the directory’s name</p>
 <p>To move a file, one can use the following command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mv</span> <span class="p">[</span><span class="n">target</span><span class="p">]</span> <span class="p">[</span><span class="n">destination</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>The ‘move’ command moves ‘target’ to the directory specified as ‘destination’</p>
+<p>The ‘move’ command moves ‘target’ to the directory specified as ‘destination’:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 linux_tutorial]$ mv randomfile.txt ~/linux_tutorial/directory1/
+[aleith@login002 linux_tutorial]$ ls
+directory1
+[aleith@login002 linux_tutorial]$ ls ~/linux_tutorial/directory1/
+randomfile.txt
+</pre></div>
+</div>
 <p>Files can be copied by typing:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">cp</span> <span class="p">[</span><span class="n">original</span> <span class="n">filename</span><span class="p">]</span> <span class="p">[</span><span class="n">new</span> <span class="n">filename</span><span class="p">]</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>cp [original filename] [new filename]
+
+[aleith@login002 linux_tutorial]$ cd directory1/
+[aleith@login002 directory1]$ cp randomfile.txt copiedfile.txt
+[aleith@login002 directory1]$ ls
+copiedfile.txt  randomfile.txt
 </pre></div>
 </div>
 <p>The ‘copy’ command simply duplicates a file in its entirety</p>
 <p>The * character is known as the ‘wildcard’, and it is used to mean ‘anything’</p>
 <p>For example,:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">*.</span><span class="n">txt</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>ls *.txt
+
+[aleith@login002 directory1]$ touch script.sh  #create an empty script to serve as a contrast
+[aleith@login002 directory1]$ ls
+copiedfile.txt  script.sh   randomfile.txt
+[aleith@login002 directory1]$ ls *.txt
+copiedfile.txt  randomfile.txt
 </pre></div>
 </div>
 <p>will run ‘ls’ on every file that ends in ‘.txt’.  To illustrate this effect, a new file called ‘script.sh’ has been added to our directory</p>
 <p>Here, we show two more examples.</p>
 <p>First, we list any files beginning with ‘random’:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="n">random</span><span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>ls random*
+
+[aleith@login002 directory1]$ ls random*
+randomfile.txt
 </pre></div>
 </div>
 <p>Then, we list any files that start with anything, have a ‘d’ in the middle, and then end with anything:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">*</span><span class="n">d</span><span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span>ls *d*
+[aleith@login002 directory1]$ ls *d*
+copiedfile.txt  randomfile.txt
 </pre></div>
 </div>
 <p>To view the contents of a file, the <code class="docutils literal"><span class="pre">less</span></code> command can be used - it will display the first few lines of the file and allow you to scroll through it.  Pressing ‘q’ will close this browser</p>
@@ -183,7 +232,21 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 <p>The CLI has operators that can change this behavior by redirecting that output</p>
 <p>The <code class="docutils literal"><span class="pre">&gt;</span> <span class="pre">[file]</span></code> operator redirects output to ‘file’, overwriting it if it already exists</p>
 <p>The related <code class="docutils literal"><span class="pre">&gt;&gt;</span> <span class="pre">[file]</span></code> operator appends output to ‘file’</p>
-<p>[full page screenshot]</p>
+<p>Here is an example that compares these operators:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 directory1]$ echo &quot;hello world&quot;
+hello world
+[aleith@login002 directory1]$ echo &quot;hello world, redirected&quot; &gt; hello.txt
+[aleith@login002 directory1]$ ls
+copiedfile.txt script.sh
+hello.txt      randomfile.txt
+[aleith@login002 directory1]$ cat hello.txt
+hello world, redirected
+[aleith@login002 directory1]$ echo &quot;hello world, appended&quot; &gt;&gt; hello.txt
+[aleith@login002 directory1]$ cat hello.txt
+hello world, redirected
+hello world, appended
+</pre></div>
+</div>
 <p><strong>Downloading Files</strong></p>
 <p>Linux has two primary commands for downloading files.  The simplest is:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span>
@@ -193,24 +256,72 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">[</span><span class="n">filepath</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Without the ‘&gt; [filepath]’ portion of the command, the contents of the file will be printed to the screen and not saved</p>
-<p>[curl page]</p>
-<p>[grep page]</p>
+<p>Without the ‘&gt; [filepath]’ portion of the command, the contents of the file will be printed to the screen and not saved:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 directory1]$ curl www.google.com
+&lt;!doctype html&gt;&lt;html itemscope=&quot;&quot; itemtype=&quot;http://schema.org/WebPage&quot; lang=&quot;en&quot;&gt;&lt;head&gt;
+&lt;meta content=&quot;Search the world&#39;s information, including webpages,
+</pre></div>
+</div>
+<p>Juducious use of <code class="docutils literal"><span class="pre">&gt;</span></code> allows you to download the page instead, and even invokes a progress meter:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 directory1]$ curl www.google.com &gt; google.html
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                         Dload  Upload   Total   Spent    Left  Speed
+100 11371    0 11371    0     0   187k      0 --:--:-- --:--:-- --:--:--  236k
+[aleith@login002 directory1]$ ls
+copiedfile.txt  script.sh    google.html
+hello.txt      randomfile.txt
+</pre></div>
+</div>
+<p>For the next few examples, we will use a dictionary of English words:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 directory1]$ mkdir grep_examples
+[aleith@login002 directory1]$ cd grep_examples/
+[aleith@login002 grep_examples]$ curl http://www-personal.umich.edu/~jlawler/wordlist &gt; dictionary.txt
+ % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                         Dload  Upload   Total   Spent    Left  Speed
+100  718k  100  718k    0     0  1117k      0 --:--:-- --:--:-- --:--:-- 1240k
+</pre></div>
+</div>
+<p>The wc -l command uses the ‘word count’ function to count the number of lines this file comprises (69905):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ wc -l dictionary.txt
+69905 dictionary.txt
+</pre></div>
+</div>
 <p>The grep command allows us to search through a file for any entries that match a specified pattern:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">grep</span> <span class="p">[</span><span class="n">pattern</span><span class="p">]</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>For example, we can search our (abridged) dictionary for all words containing the letter sequence ‘aar’</p>
+<p>For example, we can search our (abridged) dictionary for all words containing the letter sequence ‘aar’:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ grep &quot;aar&quot; dictionary.txt
+aardvark
+aardwolf
+bazaar
+tumultuaary
+zaar
+</pre></div>
+</div>
 <p>The previous example included a fairly specific pattern, ‘aar’, intentionally selected so all matches could fit on screen - but what if that weren’t the case?  How can we count the number of matches if there are hundreds of them?</p>
 <p>The CLI has an operator that allows us to send the output of one function to another function (&gt; redirects to files, not other functions):</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">|</span>
 </pre></div>
 </div>
 <p>This operator is pronounced ‘pipe’</p>
-<p>If we want to know how many words in our dictionary contain the letter ‘a’ anywhere, we can combine <code class="docutils literal"><span class="pre">grep</span></code> and <code class="docutils literal"><span class="pre">wc</span> <span class="pre">-l</span></code> using a pipe</p>
-<p>If we tried to do so using the wrong operator, we would end up with weird behavior and a file named ‘wc’, since &gt; treats its antecedent as a file name specification</p>
+<p>If we want to know how many words in our dictionary contain the letter ‘a’ anywhere, we can combine <code class="docutils literal"><span class="pre">grep</span></code> and <code class="docutils literal"><span class="pre">wc</span> <span class="pre">-l</span></code> using a pipe:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ grep &quot;a&quot; dictionary.txt | wc -l
+40387
+</pre></div>
+</div>
+<p>If we tried to do so using the wrong operator, we would end up with weird behavior and a file named ‘wc’, since &gt; treats its antecedent as a file name specification:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ grep &quot;a&quot; dictionary.txt &gt; wc -l
+[aleith@login002 grep_examples]$ ls
+dictionary.txt  wc
+</pre></div>
+</div>
 <p><strong>Deleting Files</strong></p>
-<p>This ‘wc’ file is not useful, merely containing “dictionary.txt” as text</p>
+<p>This ‘wc’ file is not useful, merely containing “dictionary.txt” as text:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ cat wc
+dictionary.txt
+</pre></div>
+</div>
 <p>To delete a file, we use the following command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">rm</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span>
 </pre></div>
@@ -231,12 +342,22 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 <p>Note that this syntax will not necessarily hold for other UNIX-like operating systems such as OSX</p>
 <p>The most common error encountered on a Linux system - hands down - is <code class="docutils literal"><span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code></p>
 <p>This error means that the computer does not know how to process what you’ve typed - it could be due to a simple typo, or there could be a bigger issue</p>
-<p>A slapdash attempt to look at the cp manual will look like this</p>
-<p>[screenshot]</p>
-<p>Oftentimes, however, you have indeed typed a valid command but Linux still says ‘command not found’ - how is that possible?</p>
+<p>A slapdash attempt to look at the cp manual will look like this:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ cpr --help
+bash: cpr: command not found
+</pre></div>
+</div>
+<p>Oftentimes, however, you have indeed typed a valid command but Linux still says ‘command not found’ - how is that possible?:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ samtools --help
+bash: samtools: command not found
+</pre></div>
+</div>
 <p>It all comes down to how a command line-based system runs software.  Unlike a GUI-based system where every program icon is linked directly to the software, Linux works based on a list of locations to look for program files (‘binaries’) - this list is called the ‘PATH’</p>
 <p>To view your PATH, you can type:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span>echo $PATH
+
+[aleith@login002 grep_examples]$ echo $PATH
+/gpfs/runtime/opt/matlab/R2014a/bin:/gpfs/runtime/opt/perl/5.18.2/bin:/gpfs/runtime/opt/python/2.7.3/bin:/gpfs/runtime/opt/java/7u5/bin:/gpfs/runtime/opt/intel/2013.1.106/bin:/gpfs/runtime/opt/centos-updates/6.3/bin:/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/ibutils/bin:/gpfs/runtime/bin:/users/aleith/bin
 </pre></div>
 </div>
 <p>Here, the ‘$’ basically means ‘bash variable’ - PATH is a globally-defined variable on every Linux system</p>
@@ -246,8 +367,17 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 <p>Another common error is <code class="docutils literal"><span class="pre">Permission</span> <span class="pre">denied</span></code>, which occurs when you lack the permissions to perform a given operation</p>
 <p>This error usually comes about when you have downloaded a file and it’s been created with weird permissions</p>
 <p>To resolve this issue, simply add the requisite permission for the operation you are attempting</p>
-<p>We will simulate an example of this error on the next slide</p>
-<p>[ss]</p>
+<p>We will simulate an example of this error below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 grep_examples]$ cd ~/linux_tutorial/directory1/
+[aleith@login002 directory1]$ chmod 000 randomfile.txt
+[aleith@login002 directory1]$ ls -lh randomfile.txt
+---------- 1 aleith cbc 0 Mar 19 18:43 randomfile.txt
+[aleith@login002 directory1]$ cat randomfile.txt
+cat: randomfile.txt: Permission denied
+[aleith@login002 directory1]$ chmod u+r randomfile.txt
+[aleith@login002 directory1]$ cat randomfile.txt
+</pre></div>
+</div>
 <p>Linux has an uncountable number of developers publishing software, and most of these packages have their own unique errors.</p>
 <p>It is highly likely that you will encounter unintelligible errors in the course of your work, especially if you are using software written in older languages like Java or C</p>
 <p>When encountering such an error, it is advisable to Google the entirety of the error message except for the filename and file path of your data and system</p>
@@ -273,7 +403,11 @@ aleith  cbc means this file is owned by user ‘aleith’ from group ‘cbc’</
 </pre></div>
 </div>
 <p>The ‘-Y’ option will enable graphics forwarding.  It is necessary to use any application with a GUI e.g. Firefox, RStudio, or the typical Matlab environment</p>
-<p>Without specifying ‘-Y’, attempts to display graphics will cause errors</p>
+<p>Without specifying ‘-Y’, attempts to display graphics will cause errors:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[aleith@login002 directory1]$ firefox
+Error: no display specified
+</pre></div>
+</div>
 <p>If left idle, ssh connections will timeout</p>
 <p>Attempting to type into a terminal connected to a timed-out session will yield ~10 seconds of lag, and then an error message:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">packet_write_wait</span><span class="p">:</span> <span class="n">Connection</span> <span class="n">to</span> <span class="p">[</span><span class="n">ip</span><span class="p">]</span> <span class="n">port</span> <span class="mi">22</span><span class="p">:</span> <span class="n">Broken</span> <span class="n">pipe</span>
