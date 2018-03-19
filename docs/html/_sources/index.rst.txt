@@ -10,6 +10,8 @@ Welcome to CBC Linux Tutorial's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   CBC Workshop index <https://compbiocore.github.io/cbc-workshops/>
+
    slides
 
    linux_explication
