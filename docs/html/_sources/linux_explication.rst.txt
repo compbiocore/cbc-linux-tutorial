@@ -135,7 +135,7 @@ To view a file’s permissions on Linux, you can type::
 
 	[aleith@login002 linux_tutorial]$ ls -lh
 	total 0
-    -rw-r--r-- 1 aleith cbc    0 Mar 19 18:43 randomfile.txt
+        -rw-r--r-- 1 aleith cbc    0 Mar 19 18:43 randomfile.txt
 
 -rw-r--r-- means ‘user has read and write permission’, ‘user’s group has read permission’, and ‘everyone else has read permission’
 aleith	cbc means this file is owned by user ‘aleith’ from group ‘cbc’
