@@ -56,9 +56,7 @@ Purpose
 This site hosts the lecture slides for the CBC introductory Linux lecture.  It also contains a long-form exposition of the topics described within.  This presentation was originally created by Andrew Leith for Nicola Neretti's BIOL2010 class at Brown University.
 
 
-Indices and tables
-==================
+Contact
+=======
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+For assistance, contact cbc-help@brown.edu - this is our general help line, so please specify that your issue is with this site's contents
