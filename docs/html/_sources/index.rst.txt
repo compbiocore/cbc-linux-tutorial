@@ -16,6 +16,36 @@ Welcome to CBC Linux Tutorial's documentation!
 
    linux_explication
 
+This lecture, 'Command-Line Bioinformatics Primer', is designed to introduce fundamental command line tools that are used in the practice of bioinformatics and computational biology.  It is an introductory lecture that presupposes no experience with the command line.  Topics presented herein include the following:
+
+
+* Introduction to the Command Line
+   * Command line history and context
+   * CLI navigation
+   * File paths
+   * File permissions
+   * Manipulation of files
+
+* Intermediate-level Operations
+	* Searching inside of files
+	* Sorting, cutting, and pasting
+	* Redirecting output of commands to files or other commands
+	* Downloading files
+
+* Errors
+	* Function manuals
+	* Common errors
+	* Characerizing unknown errors
+
+* Brown's Compute Cluster
+	* Introduction to CCV / Oscar
+	* Connecting to a remote system
+	* Transferring files to and from a remote system
+	* Batch scripting & resource managers
+	* Interactive jobs
+	* Modules
+
+
 Indices and tables
 ==================
 
