@@ -16,6 +16,10 @@ Welcome to CBC Linux Tutorial's documentation!
 
    linux_explication
 
+
+Lecture Topics
+==============
+
 This lecture, 'Command-Line Bioinformatics Primer', is designed to introduce fundamental command line tools that are used in the practice of bioinformatics and computational biology.  It is an introductory lecture that presupposes no experience with the command line.  Topics presented herein include the following:
 
 
@@ -44,6 +48,12 @@ This lecture, 'Command-Line Bioinformatics Primer', is designed to introduce fun
 	* Batch scripting & resource managers
 	* Interactive jobs
 	* Modules
+
+
+Purpose
+=======
+
+This site hosts the lecture slides for the CBC introductory Linux lecture.  It also contains a long-form exposition of the topics described within.  This presentation was originally created by Andrew Leith for Nicola Neretti's BIOL2010 class at Brown University.
 
 
 Indices and tables
