@@ -1,0 +1,28 @@
+site_name:        Computational Biology Core - Brown University
+site_author:      Andrew Leith
+repo_url:         https://github.com/compbiocore/cbc-linux-tutorial
+site_description: CBC Linux Tutorial
+site_url: https://compbiocore.github.io/ #this is the main site!
+
+theme:
+  name: material
+  palette:
+    primary: 'blue grey'
+    accent: 'indigo'
+  logo: images/cbc-logo.svg
+
+extra_css:
+  - styles/dark_mode.css
+
+markdown_extensions:
+  - extra
+  - tables
+  - fenced_code
+  - admonition
+  - codehilite
+  - footnotes
+
+nav:
+  - Home: 'index.md'
+  - Linux Explication: 'linux_explication.md'
+  - Presentation Slides: 'slides.md'

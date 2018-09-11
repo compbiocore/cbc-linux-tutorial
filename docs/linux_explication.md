@@ -1,12 +1,12 @@
-Linux Explication
-=================
+# Linux Explication
+
 
 This document constitutes a more elaborate discussion of the principles described in our Linux presentation, presented in a structure more resembling a narrative.  The code within can be copied into a terminal and directly executed (though it is currently undergoing testing and may still have bugs).
 
 *If this page is missing any basic information that you would find helpful, please contact us at cbc-help@brown.edu - when doing so, please specify that your message is regarding the contents of this tutorial*
 
-Part I: Introduction to Linux
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Part I: Introduction to Linux
+
 
 The original way to interact with a computer, dating back to the 1960s - so why use it in this day and age?
 
@@ -432,8 +432,7 @@ Linux has an uncountable number of developers publishing software, and most of t
 
 When encountering such an error, it is advisable to Google the entirety of the error message except for the filename and file path of your data; appending the name of your operating system is also important in finding an applicable solution.  Numerous forums, mailing lists, and blogs discuss how to respond to (almost) any error you might encounter, but these are often specific to a certain OS, so finding the correct one requires care in the specification of your search terms.
 
-Part II: Brown's Compute Cluster
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Part II: Brown's Compute Cluster
 
 Brown has a compute cluster operated by CCV, the Center for Computation and Visualization.  CCV offers services to researchers affiliated with Brown.  Chief among their resources is ‘Oscar’, the compute cluster itself.
 
