@@ -2,5 +2,5 @@ repo:             cbc-linux-tutorial
 site_name:        CBC Linux Tutorial
 site_author:      Andrew Leith
 site_description: An elementary Linux tutorial prepared for Nicola Neretti's BIOL2010 by Andrew Leith
-site_url:         https://compbiocore.github.io/
+docs_url:         https://compbiocore.github.io/cbc-linux-tutorial
 type:             tutorial    # required. choose one of [software, tutorial, workshop, documentation]
