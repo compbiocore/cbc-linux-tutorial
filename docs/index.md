@@ -1,7 +1,7 @@
 # Welcome to CBC Linux Tutorial's documentation!
 
 [![Docs](https://img.shields.io/badge/docs-stable-blue.svg?style=flat-square)](https://compbiocore.github.io/cbc-linux-tutorial)
-[![License](https://img.shields.io/aur/license/yaourt.svg)](https://raw.githubusercontent.com/compbiocore/cbc-linux-tutorial/master/LICENSE)
+[![License](https://img.shields.io/github/license/compbiocore/cbc-linux-tutorial.svg)](https://raw.githubusercontent.com/compbiocore/cbc-linux-tutorial/master/LICENSE)
 
 
 ### Lecture Topics
